@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+<div style='height: 100px'>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('Opções  de detalhamento')">&times;</a>
+  <a href="#" onclick="closeNav('About', 'aboutDiv')">About</a>
+  <a href="#" onclick="closeNav('Services')">Services</a>
+  <a href="#" onclick="closeNav('Clients')">Clients</a>
+  <a href="#" onclick="closeNav('Contact')">Contact</a>
+</div>
+
+<div id="main">
+  <h2>Sidenav Push Example</h2>
+  <span id='opcao' style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Opções de detalhamento</span>
+  <p style='left: 0px; top: -20px; position: relative'><i>Click no menu </i>&#9776;<i> para acessar opções de navegação.</i></p>
+  
+  <div id='aboutDiv' class='conteudoDiv ' style='left: 40px; top: -20px; position: relative; display: none'>
+  Conteúdo da div About
+  </div>
+  
+</div>
+</div>
+
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav(opcao, divId) {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("opcao").innerHTML = '&#9776; ' + opcao;
+  
+  document.getElementsByClassName('conteudoDiv').style.display = 'none';
+  document.getElementById(divId).style.display = '';
+  
+}
+</script>
+   
+</body>
+</html> 
